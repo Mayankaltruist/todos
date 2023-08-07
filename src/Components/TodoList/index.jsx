@@ -1,13 +1,39 @@
 import React from "react";
 
-function TodoList() {
+function TodoList({
+  currentCategoryConfig,
+  handleToggleTodo,
+  handleDeleteTodo,
+}) {
   return (
     <ul id="todo-list">
-      <li>
-        <span className="todo-toggle"></span>
-        <span className="todo-lebel"></span>
-        <span className="todo-delete"></span>
-      </li>
+      {todosToShow.map((todo) => (
+        <li className="todo-list-item" data-id={todo.id}>
+          <span
+            data-item-id={todo.id}
+            data-category-id={currentCategoryConfig.id}
+            className="todo-toggle"
+            onClick={handleToggleTodo}
+          >
+            X
+          </span>
+          <span
+            data-id={todo.id}
+            className="todo-label"
+            style={{ textDecoration: todo.done ? "underline" : "none" }}
+          >
+            {todo.label}
+          </span>
+          <span
+            data-item-id={todo.id}
+            data-category-id={currentCategoryConfig.id}
+            className="todo-delete"
+            onClick={handleDeleteTodo}
+          >
+            X
+          </span>
+        </li>
+      ))}
     </ul>
   );
 }
