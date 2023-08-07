@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Sidebar from "./Components/Sidebar";
 import Main from "./Components/Main";
 
@@ -38,7 +38,16 @@ function App() {
     },
   ];
 
-  
+  const [currentCategoryId, setCurrentCategoryId] = useState("");
+  const [categoryList, setCategoryList] = useState(() => {
+    const storedData = localStorage.getItem("categoryList");
+    return storedData ? JSON.parse(storedData) : initialCategoryList;
+  });
+
+  useEffect(() => {
+    // Save the categoryList to localStorage whenever it changes
+    localStorage.setItem("categoryList", JSON.stringify(categoryList));
+  }, [categoryList]);
 
   return (
     <Fragment>
