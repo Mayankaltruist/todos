@@ -50,6 +50,7 @@ function App() {
     localStorage.setItem("categoryList", JSON.stringify(categoryList));
   }, [categoryList]);
 
+  // Function to add category
   function handleAddCategory(label) {
     setCategoryList([
       ...categoryList,
@@ -61,10 +62,32 @@ function App() {
     ]);
   }
 
+  // Funtion to delete category
   function handleDeleteCategory(event) {
     event.stopPropagation();
     const id = event.target.getAttribute("data-id");
     setCategoryList(categoryList.filter((category) => category.id !== id));
+  }
+
+  // Function to add todos in selected category
+  function handleAddTodo(categoryId, todoLabel) {
+    setCategoryList(
+      categoryList.map((category) =>
+        category.id === categoryId
+          ? {
+              ...category,
+              todos: [
+                ...category.todos,
+                {
+                  id: generateId(),
+                  label: todoLabel,
+                  done: false,
+                },
+              ],
+            }
+          : category
+      )
+    );
   }
 
   return (
