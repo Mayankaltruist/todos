@@ -90,6 +90,23 @@ function App() {
     );
   }
 
+  // Function to delete category todo
+  function handleDeleteTodo(event) {
+    const categoryId = event.target.getAttribute("data-category-id");
+    const todoId = event.target.getAttribute("data-todo-id");
+
+    setCategoryList(
+      categoryList.map((category) =>
+        category.id === categoryId
+          ? {
+              ...category,
+              todos: category.todos.filter((todo) => todo.id !== todoId),
+            }
+          : category
+      )
+    );
+  }
+
   return (
     <Fragment>
       <Sidebar />
