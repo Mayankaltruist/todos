@@ -137,8 +137,20 @@ function App() {
     setCurrentCategoryId(categoryId);
   }
 
-  
-
+  // Function to delete all todos with done status true
+  function handleDeleteCompleteTodos(event) {
+    const categoryId = event.target.getAttribute("data-category-id");
+    setCategoryList(
+      categoryList.map((category) =>
+        category.id === categoryId
+          ? {
+              ...category,
+              todos: category.todos.filter((todo) => todo.done === false),
+            }
+          : category
+      )
+    );
+  }
 
   return (
     <Fragment>
