@@ -17,7 +17,6 @@ function TodoContainer({
     setMode(modeId);
   };
 
-  
   let todosToShow;
   // Show all todos
   if (mode === "all") {
@@ -59,9 +58,10 @@ function TodoContainer({
         handleTabClick={handleModeChange}
       />
       <TodoList
+        todosToShow={todosToShow}
         handleDeleteTodo={handleDeleteTodo}
         handleToggleTodo={handleToggleTodo}
-        currentCategoryId={currentCategoryConfig.id}
+        currentCategoryId={currentCategoryConfig}
       />
       <button
         onClick={handleDeleteCompleteTodos}
