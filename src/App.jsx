@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Sidebar from "./Components/Sidebar";
 import Main from "./Components/Main";
+import { generateId } from "./utils";
 
 function App() {
   const initialCategoryList = [
@@ -48,6 +49,17 @@ function App() {
     // Save the categoryList to localStorage whenever it changes
     localStorage.setItem("categoryList", JSON.stringify(categoryList));
   }, [categoryList]);
+
+  function handleAddCategory(label) {
+    setCategoryList([
+      ...categoryList,
+      {
+        id: generateId(),
+        label: label,
+        todos: [],
+      },
+    ]);
+  }
 
   return (
     <Fragment>
