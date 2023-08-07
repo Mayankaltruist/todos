@@ -107,6 +107,30 @@ function App() {
     );
   }
 
+  // Funtion to handle toggle between done status true and false
+  function handleToggleTodo(event) {
+    const categoryId = event.target.getAttribute("data-category-id");
+    const todoId = event.target.getAttribute("data-todo-id");
+
+    setCategoryList(
+      categoryList.map((category) =>
+        category.id === categoryId
+          ? {
+              ...category,
+              todos: category.todos.map((todo) =>
+                todo.id === todoId
+                  ? {
+                      ...todo,
+                      done: !todo.done,
+                    }
+                  : todo
+              ),
+            }
+          : category
+      )
+    );
+  }
+
   return (
     <Fragment>
       <Sidebar />
