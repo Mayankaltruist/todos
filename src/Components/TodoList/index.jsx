@@ -4,6 +4,7 @@ function TodoList({
   currentCategoryConfig,
   handleToggleTodo,
   handleDeleteTodo,
+  todosToShow,
 }) {
   return (
     <ul id="todo-list">
