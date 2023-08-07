@@ -131,6 +131,15 @@ function App() {
     );
   }
 
+  // Function to select category in sidebar to render it to Main component
+  function handleSelectCurrentCategory(event) {
+    const categoryId = event.target.getAttribute("data-id");
+    setCurrentCategoryId(categoryId);
+  }
+
+  
+
+
   return (
     <Fragment>
       <Sidebar />
