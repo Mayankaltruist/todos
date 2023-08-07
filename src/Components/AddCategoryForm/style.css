@@ -1,8 +1,8 @@
 #AddCategoryForm__form__form {
-    position: relative;
     display: flex;
     /* width: 80%; */
     margin: 0;
+    justify-content: flex-end;
 }
 
 .AddCategoryForm__form__input {
