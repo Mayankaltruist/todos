@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 import TodoContainer from "../TodoContainer";
 import Header from "../Header";
 
@@ -10,7 +11,6 @@ function Main({
   handleToggleTodo,
   handleDeleteCompleteTodos,
 }) {
-
   const currentCategoryConfig = categoryList.find(
     (category) => category.id === currentCategoryId
   );
@@ -27,11 +27,13 @@ function Main({
   return (
     <main id="main">
       <Header CurrentCategoryLabel={currentCategoryConfig.label} />
-      <TodoContainer currentCategoryConfig={currentCategoryConfig}
-      handleAddTodo={handleAddTodo}
-      handleDeleteTodo={handleDeleteTodo}
-      handleToggleTodo={handleToggleTodo}
-      handleDeleteCompleteTodos={handleDeleteCompleteTodos} />
+      <TodoContainer
+        currentCategoryConfig={currentCategoryConfig}
+        handleAddTodo={handleAddTodo}
+        handleDeleteTodo={handleDeleteTodo}
+        handleToggleTodo={handleToggleTodo}
+        handleDeleteCompleteTodos={handleDeleteCompleteTodos}
+      />
     </main>
   );
 }

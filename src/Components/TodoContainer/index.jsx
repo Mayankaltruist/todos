@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css";
 import AddTodoForm from "../AddTodoForm";
 import TodoList from "../TodoList";
 import Tab from "../Tab";

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./style.css";
 
 function Header({ currentCategoryLabel }) {
   const [date, setDate] = useState("");
