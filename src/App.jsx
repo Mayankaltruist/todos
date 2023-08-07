@@ -154,8 +154,20 @@ function App() {
 
   return (
     <Fragment>
-      <Sidebar />
-      <Main />
+      <Sidebar
+        categoryList={categoryList}
+        handleSelectCurrentCategory={handleSelectCurrentCategory}
+        handleAddCategory={handleAddCategory}
+        handleDeleteCategory={handleDeleteCategory}
+      />
+      <Main
+        currentCategoryId={currentCategoryId}
+        categoryList={categoryList}
+        handleAddTodo={handleAddTodo}
+        handleDeleteTodo={handleDeleteTodo}
+        handleToggleTodo={handleToggleTodo}
+        handleDeleteCompleteTodos={handleDeleteCompleteTodos}
+      />
     </Fragment>
   );
 }
