@@ -61,6 +61,12 @@ function App() {
     ]);
   }
 
+  function handleDeleteCategory(event) {
+    event.stopPropagation();
+    const id = event.target.getAttribute("data-id");
+    setCategoryList(categoryList.filter((category) => category.id !== id));
+  }
+
   return (
     <Fragment>
       <Sidebar />
