@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css";
 
 function AddTodoForm({ currentCategoryId, handleAddTodo }) {
   const [itemText, setItemText] = useState("");
@@ -7,7 +8,7 @@ function AddTodoForm({ currentCategoryId, handleAddTodo }) {
     // prevent form default behaviour
     event.preventDefault();
     handleAddTodo(currentCategoryId, itemText);
-    //    setting input feild to "" after submit
+    //setting input feild to "" after submit
     setItemText("");
   }
   //  making controlled component
@@ -16,13 +17,18 @@ function AddTodoForm({ currentCategoryId, handleAddTodo }) {
   }
 
   return (
-    <form id="todo-form" onSubmit={handleFormSubmit}>
+    <form id="AddTodoForm__form__todo-form" onSubmit={handleFormSubmit}>
       <input
+        className="AddTodoForm__form__todo-input"
         type="text"
         value={itemText}
         onChange={handleItemTextChange}
       ></input>
-      <button type="submit" disable={itemText.length === 0}>
+      <button
+        type="submit"
+        disabled={itemText.length === 0}
+        className="AddTodoForm__form__todo-btn"
+      >
         ADD TODO
       </button>
     </form>

@@ -1,0 +1,7 @@
+#Sidebar__aside__sidebar {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    border-right: 1px solid grey;
+}

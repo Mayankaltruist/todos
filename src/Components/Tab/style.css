@@ -1,0 +1,17 @@
+#Tab__ul__tab {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.Tab__ul__tab-list {
+    list-style: none;
+}
+
+.Tab__ul__tab:active {
+    background-color: #dbdbdb;
+}

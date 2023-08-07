@@ -25,8 +25,8 @@ function Main({
   }
 
   return (
-    <main id="main">
-      <Header CurrentCategoryLabel={currentCategoryConfig.label} />
+    <main id="Main__main__main">
+      <Header currentCategoryLabel={currentCategoryConfig.label} />
       <TodoContainer
         currentCategoryConfig={currentCategoryConfig}
         handleAddTodo={handleAddTodo}

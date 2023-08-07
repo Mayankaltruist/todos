@@ -3,9 +3,9 @@ import "./style.css";
 
 function UserInfo() {
   return (
-    <div id="user-info">
-      <img src="" alt="profile pic"></img>
-      <h2>User Name</h2>
+    <div id="UserInfo__div__user-info">
+      <img src=".././img/download.png" alt="profile pic"></img>
+      <h2 id="UserInfo__div__user-name">User Name</h2>
     </div>
   );
 }

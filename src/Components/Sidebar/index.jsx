@@ -11,7 +11,7 @@ function Sidebar({
   handleSelectCurrentCategory,
 }) {
   return (
-    <aside id="sidebar">
+    <aside id="Sidebar__aside__sidebar">
       <UserInfo />
       <CategoryList
         categoryList={categoryList}

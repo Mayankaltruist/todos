@@ -36,7 +36,7 @@ function TodoContainer({
   }
 
   return (
-    <section id="todo-container">
+    <section id="TodoContainer__section__todo-container">
       <AddTodoForm
         handleAddTodo={handleAddTodo}
         currentCategoryId={currentCategoryConfig.id}
@@ -63,9 +63,10 @@ function TodoContainer({
         todosToShow={todosToShow}
         handleDeleteTodo={handleDeleteTodo}
         handleToggleTodo={handleToggleTodo}
-        currentCategoryId={currentCategoryConfig}
+        currentCategoryConfig={currentCategoryConfig}
       />
       <button
+        className="TodoContainer__section__btn"
         onClick={handleDeleteCompleteTodos}
         data-category-id={currentCategoryConfig.id}
       >

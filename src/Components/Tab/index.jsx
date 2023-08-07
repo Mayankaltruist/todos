@@ -3,13 +3,16 @@ import "./style.css";
 
 function Tab({ handleTabClick, tabConfig, currentTabId }) {
   return (
-    <ul>
+    <ul id="Tab__ul__tab">
       {tabConfig.map((tabConfigItem) => (
         <li
+          key={tabConfig.id}
           data-id={tabConfigItem.id}
           onClick={handleTabClick}
           className={
-            tabConfigItem.id === currentTabId ? "tab tab-active" : "tab"
+            tabConfigItem.id === currentTabId
+              ? "Tab__ul__tab-list Tab__ul__tab-list-active"
+              : "Tab__ul__tab-list"
           }
         >
           {tabConfigItem.label}

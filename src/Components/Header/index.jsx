@@ -20,7 +20,7 @@ function Header({ currentCategoryLabel }) {
   }, []);
 
   return (
-    <header id="header">
+    <header id="Header__header__header">
       <h2>{currentCategoryLabel}</h2>
       <p>{date.toString()}</p>
     </header>

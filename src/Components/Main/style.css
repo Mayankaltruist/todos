@@ -1,0 +1,6 @@
+#Main__main__main {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}

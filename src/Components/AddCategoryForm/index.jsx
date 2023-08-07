@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css";
 
 function AddCategoryForm({ handleAddCategory }) {
   // setting state of input
@@ -18,9 +19,16 @@ function AddCategoryForm({ handleAddCategory }) {
   };
 
   return (
-    <form id="form" onSubmit={handleSubmit}>
-      <input type="text" value={categoryText} onChange={handleChange}></input>
-      <button type="submit">ADD CATEGORY</button>
+    <form id="AddCategoryForm__form__form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={categoryText}
+        onChange={handleChange}
+        className="AddCategoryForm__form__input"
+      ></input>
+      <button type="submit" className="AddCategoryForm__form__btn">
+        ADD CATEGORY
+      </button>
     </form>
   );
 }
