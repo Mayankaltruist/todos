@@ -23,8 +23,12 @@ function Header({ currentCategoryLabel }) {
     <header id="Header__header__header">
       <h2 className="Header__header__label">{currentCategoryLabel}</h2>
       <p>
-        <span>{date.toLocaleDateString()}</span>
-        <span>{date.toLocaleTimeString()}</span>
+        {date.toLocaleDateString("en-us", {
+          weekday: "long",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })}
       </p>
     </header>
   );

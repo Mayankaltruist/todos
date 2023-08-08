@@ -1,7 +1,9 @@
 #AddTodoForm__form__todo-form {
-    position: relative;
     display: flex;
-    margin: 2px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 500px;
+    align-self: center;
 }
 
 .AddTodoForm__form__todo-input {
@@ -19,7 +21,7 @@
     width: 120px;
     margin-left: 8px;
     padding: 4px 4px;
-    background-color: #007bff;
+    background-color: #007bffd1;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -28,7 +30,12 @@
     cursor: pointer;
 }
 
+.AddTodoForm__form__todo-btn:disabled {
+    cursor: not-allowed;
+    background-color: #007bff70;
+}
+
 .AddCategory__form__todo-btn:hover,
 .AddCategory__form__todo-btn:focus {
-    background-color: #0056b3;
+    background-color: #007bff;
 }

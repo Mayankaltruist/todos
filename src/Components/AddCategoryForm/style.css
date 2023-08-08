@@ -1,13 +1,12 @@
 #AddCategoryForm__form__form {
     display: flex;
-    /* width: 80%; */
-    margin: 0;
-    justify-content: flex-end;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    row-gap: 5px;
+    padding: 10px 5px;
 }
 
 .AddCategoryForm__form__input {
-    margin-left: 2%;
-    height: 30px;
     padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;

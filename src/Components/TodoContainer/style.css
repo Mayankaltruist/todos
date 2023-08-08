@@ -1,6 +1,10 @@
-#TodoContainer__section__todo-containe {
+#TodoContainer__section__todo-container {
     display: flex;
     flex-flow: column nowrap;
+    row-gap: 10px;
+    position: relative;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 .TodoContainer__section__btn {
@@ -18,4 +22,9 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 10px;
     cursor: pointer;
+}
+
+.TodoContainer__section__btn:disabled {
+    background-color: #d96f90;
+    cursor: not-allowed;
 }
