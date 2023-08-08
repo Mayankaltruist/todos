@@ -3,8 +3,25 @@
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
+    overflow-y: hidden;
 }
 
-.Main__main__fallback-text {
+.Main__div__fallback-ui {
+    display: flex;
+    flex-flow: column nowrap;
+    column-gap: 20px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.Main__h2__fallback-text {
     text-align: center;
 }
+
+.Main__img__fallback-img {
+    width: 50%;
+    height: 50%;
+}
+

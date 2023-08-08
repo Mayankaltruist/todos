@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import { getNoTodoMessage } from "../../utils";
+import imgSrc from "../../img/Illustrator-Vector-Illustration-1.jpg";
 
 function TodoList({
   currentCategoryId,
@@ -11,7 +12,16 @@ function TodoList({
   todosToShow,
 }) {
   return todosToShow.length === 0 ? (
-    <p>{getNoTodoMessage(currentTabId)}</p>
+    <div className="TodoList__div__fallback-ui">
+      <p className="TodoList__p__fallback-text">
+        {getNoTodoMessage(currentTabId)}
+      </p>
+      <img
+        className="TodoList__img__fallback-img"
+        src={imgSrc}
+        alt="backgroung image"
+      />
+    </div>
   ) : (
     <ul id="TodoList__ul__todo-list">
       {todosToShow.map((todo) => (

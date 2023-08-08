@@ -6,7 +6,7 @@
 }
 
 .AddCategoryForm__form__input {
-    flex: 1;
+    margin-left: 2%;
     height: 30px;
     padding: 8px 12px;
     border: 1px solid #ccc;

@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import "./style.css";
 import TodoContainer from "../TodoContainer";
 import Header from "../Header";
+import imgSrc from "../../img/Illustrator-Vector-Illustration-1.jpg";
 
 function Main({
   currentCategoryId,
@@ -29,7 +30,14 @@ function Main({
           />
         </Fragment>
       ) : (
-        <h2 className="Main__main__fallback-text">Please Select a Category</h2>
+        <div className="Main__div__fallback-ui">
+          <h2 className="Main__h2__fallback-text">Please Select a Category</h2>
+          <img
+            className="Main__img__fallback-img"
+            src={imgSrc}
+            alt="backgroung image"
+          />
+        </div>
       )}
     </main>
   );

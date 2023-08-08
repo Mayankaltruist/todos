@@ -1,8 +1,7 @@
 #AddTodoForm__form__todo-form {
     position: relative;
     display: flex;
-    /* width: 80%; */
-    margin: 0;
+    margin: 2px;
 }
 
 .AddTodoForm__form__todo-input {
@@ -29,7 +28,7 @@
     cursor: pointer;
 }
 
-.AddCategory__form__btn:hover,
-.AddCategory__form__btn:focus {
+.AddCategory__form__todo-btn:hover,
+.AddCategory__form__todo-btn:focus {
     background-color: #0056b3;
 }

@@ -2,18 +2,23 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     padding-bottom: 5px;
     cursor: pointer;
+    column-gap: 2px;
 }
 
 .Tab__ul__item {
     list-style: none;
-    width: 120px;
-    display: flex;
+    width: 200px;
+    text-align: center;
     justify-content: space-around;
+    padding: 5px;
+    box-shadow: 1px 1px 0px 0px #ccc;
+    border-radius: 2px;
+    background-color: #ccdae5;
 }
 
 .Tab__ul__item-active {
-    background-color: #dbdbdb;
+    background-color: #7db7e5;
 }
