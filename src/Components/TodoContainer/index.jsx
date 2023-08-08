@@ -52,6 +52,7 @@ function TodoContainer({
       />
       <TodoList
         todosToShow={todosToShow}
+        currentTabId={mode}
         currentCategoryId={currentCategoryConfig.id}
         handleDeleteTodo={handleDeleteTodo}
         handleToggleTodo={handleToggleTodo}

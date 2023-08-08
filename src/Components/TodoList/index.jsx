@@ -1,14 +1,18 @@
 import React from "react";
 import "./style.css";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import { getNoTodoMessage } from "../../utils";
 
 function TodoList({
   currentCategoryId,
+  currentTabId,
   handleToggleTodo,
   handleDeleteTodo,
   todosToShow,
 }) {
-  return (
+  return todosToShow.length === 0 ? (
+    <p>{getNoTodoMessage(currentTabId)}</p>
+  ) : (
     <ul id="TodoList__ul__todo-list">
       {todosToShow.map((todo) => (
         <li className="TodoList__ul__todo-list-item" key={todo.id}>
