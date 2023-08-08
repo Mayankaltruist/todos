@@ -1,11 +1,9 @@
 #TodoContainer__section__todo-containe {
-    position: absolute;
     display: flex;
     flex-flow: column nowrap;
 }
 
 .TodoContainer__section__btn {
-    position: relative;
     height: 30px;
     width: 120px;
     margin-left: 8px;

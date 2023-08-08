@@ -4,53 +4,22 @@ import Main from "./Components/Main";
 import { generateId } from "./utils";
 
 function App() {
-  const initialCategoryList = [
-    {
-      id: "workout",
-      label: "Workout",
-      todos: [
-        {
-          id: "1",
-          label: "Running",
-          done: false,
-        },
-        {
-          id: "2",
-          label: "Go to Gym",
-          done: false,
-        },
-      ],
-    },
-    {
-      id: "study",
-      label: "Study",
-      todos: [
-        {
-          id: "1",
-          label: "Read Book",
-          done: false,
-        },
-        {
-          id: "2",
-          label: "Write journel",
-          done: false,
-        },
-      ],
-    },
-  ];
-
   const [currentCategoryId, setCurrentCategoryId] = useState("");
-  const [categoryList, setCategoryList] = useState(() => {
-    const storedData = localStorage.getItem("categoryList");
-    return storedData ? JSON.parse(storedData) : initialCategoryList;
-  });
+  const [categoryList, setCategoryList] = useState(
+    getCategoryListFromLocalStorage()
+  );
 
   useEffect(() => {
     // Save the categoryList to localStorage whenever it changes
     localStorage.setItem("categoryList", JSON.stringify(categoryList));
   }, [categoryList]);
 
-  // Function to add category
+  function getCategoryListFromLocalStorage() {
+    const storedData = localStorage.getItem("categoryList");
+    return storedData ? JSON.parse(storedData) : [];
+  }
+
+  // add new category with empty todos
   function handleAddCategory(label) {
     setCategoryList([
       ...categoryList,
@@ -62,14 +31,20 @@ function App() {
     ]);
   }
 
-  // Funtion to delete category
+  // delete category along with it's todos
   function handleDeleteCategory(event) {
     event.stopPropagation();
-    const id = event.target.getAttribute("data-id");
+    const id = event.currentTarget.getAttribute("data-id");
     setCategoryList(categoryList.filter((category) => category.id !== id));
   }
 
-  // Function to add todos in selected category
+  // select category and mark it as current category
+  function handleSelectCurrentCategory(event) {
+    const categoryId = event.currentTarget.getAttribute("data-id");
+    setCurrentCategoryId(categoryId);
+  }
+
+  // add todo in selected category
   function handleAddTodo(categoryId, todoLabel) {
     setCategoryList(
       categoryList.map((category) =>
@@ -90,10 +65,10 @@ function App() {
     );
   }
 
-  // Function to delete category todo
+  // delete todo from selected category
   function handleDeleteTodo(event) {
-    const categoryId = event.target.getAttribute("data-category-id");
-    const todoId = event.target.getAttribute("data-todo-id");
+    const categoryId = event.currentTarget.getAttribute("data-category-id");
+    const todoId = event.currentTarget.getAttribute("data-item-id");
 
     setCategoryList(
       categoryList.map((category) =>
@@ -107,10 +82,10 @@ function App() {
     );
   }
 
-  // Funtion to handle toggle between done status true and false
+  // toggle done status of a todo in selected category
   function handleToggleTodo(event) {
-    const categoryId = event.target.getAttribute("data-category-id");
-    const todoId = event.target.getAttribute("data-todo-id");
+    const categoryId = event.currentTarget.getAttribute("data-category-id");
+    const todoId = event.currentTarget.getAttribute("data-item-id");
 
     setCategoryList(
       categoryList.map((category) =>
@@ -131,13 +106,7 @@ function App() {
     );
   }
 
-  // Function to select category in sidebar to render it to Main component
-  function handleSelectCurrentCategory(event) {
-    const categoryId = event.target.getAttribute("data-id");
-    setCurrentCategoryId(categoryId);
-  }
-
-  // Function to delete all todos with done status true
+  // delete all done todos in selected category
   function handleDeleteCompleteTodos(event) {
     const categoryId = event.target.getAttribute("data-category-id");
     setCategoryList(

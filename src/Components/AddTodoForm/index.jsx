@@ -23,7 +23,7 @@ function AddTodoForm({ currentCategoryId, handleAddTodo }) {
         type="text"
         value={itemText}
         onChange={handleItemTextChange}
-      ></input>
+      />
       <button
         type="submit"
         disabled={itemText.length === 0}

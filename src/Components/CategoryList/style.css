@@ -15,12 +15,21 @@
     justify-content: space-evenly;
 }
 
+.CategoryList__ul__category-list-item:hover {
+    background-color: #DBDBDB;
+}
+
+.CategoryList__ul__delete-icon {
+    
+}
+
 .CategoryList__ul__category-label {
     flex-grow: 1;
     margin-left: 20%;
     margin-right: 20%;
 }
 
-.CategoryList__ul__category-list-item:hover {
-    background-color: #DBDBDB;
+.CategoryList__ul__category-count {
+    right: 20px;
 }
+

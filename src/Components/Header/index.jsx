@@ -2,27 +2,30 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 
 function Header({ currentCategoryLabel }) {
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
-    // Function to update the date
-    const updateDate = () => {
-      setDate(new Date());
-    };
-    // Call updateDate once on component mount
-    updateDate();
-    // Setup an interval to update the date every secont
+    // Setup an interval to update the date every second
     const timerId = setInterval(updateDate, 1000);
-    // Clear the interval once component unmount
+
+    // Clear the interval once component unmounts
     return () => {
       clearInterval(timerId);
     };
   }, []);
 
+  // sets date state to current date value
+  function updateDate() {
+    setDate(new Date());
+  }
+
   return (
     <header id="Header__header__header">
-      <h2>{currentCategoryLabel}</h2>
-      <p>{date.toString()}</p>
+      <h2 className="Header__header__label">{currentCategoryLabel}</h2>
+      <p>
+        <span>{date.toLocaleDateString()}</span>
+        <span>{date.toLocaleTimeString()}</span>
+      </p>
     </header>
   );
 }

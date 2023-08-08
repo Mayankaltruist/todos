@@ -6,13 +6,13 @@ function Tab({ handleTabClick, tabConfig, currentTabId }) {
     <ul id="Tab__ul__tab">
       {tabConfig.map((tabConfigItem) => (
         <li
-          key={tabConfig.id}
+          key={tabConfigItem.id}
           data-id={tabConfigItem.id}
           onClick={handleTabClick}
           className={
             tabConfigItem.id === currentTabId
-              ? "Tab__ul__tab-list Tab__ul__tab-list-active"
-              : "Tab__ul__tab-list"
+              ? "Tab__ul__item Tab__ul__item-active"
+              : "Tab__ul__item"
           }
         >
           {tabConfigItem.label}

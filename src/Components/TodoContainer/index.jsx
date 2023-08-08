@@ -3,6 +3,7 @@ import "./style.css";
 import AddTodoForm from "../AddTodoForm";
 import TodoList from "../TodoList";
 import Tab from "../Tab";
+import { tabConfig, ALL, ACTIVE, COMPLETE } from "../../constants";
 
 function TodoContainer({
   currentCategoryConfig,
@@ -11,28 +12,31 @@ function TodoContainer({
   handleToggleTodo,
   handleDeleteCompleteTodos,
 }) {
-  const [mode, setMode] = useState("all");
+  const [mode, setMode] = useState(ALL);
 
-  // Function to handle mode when tab clicked
+  // Function to update mode when tab is clicked
   const handleModeChange = (event) => {
     const modeId = event.target.getAttribute("data-id");
     setMode(modeId);
   };
 
+  // deciding which todos to show based on mode
   let todosToShow;
-  // Show all todos
-  if (mode === "all") {
-    todosToShow = currentCategoryConfig.todos;
-    // Show todo with done status false
-  } else if (mode === "active") {
-    todosToShow = currentCategoryConfig.todos.filter(
-      (todo) => todo.done === false
-    );
-    // Show todo with done status true
-  } else {
-    todosToShow = currentCategoryConfig.todos.filter(
-      (todo) => todo.done === true
-    );
+  switch (mode) {
+    case ACTIVE:
+      todosToShow = currentCategoryConfig.todos.filter(
+        (todo) => todo.done === false
+      );
+      break;
+    case COMPLETE:
+      todosToShow = currentCategoryConfig.todos.filter(
+        (todo) => todo.done === true
+      );
+      break;
+    case ALL:
+      todosToShow = currentCategoryConfig.todos;
+    default:
+      break;
   }
 
   return (
@@ -42,28 +46,15 @@ function TodoContainer({
         currentCategoryId={currentCategoryConfig.id}
       />
       <Tab
-        tabConfig={[
-          {
-            id: "all",
-            label: "All",
-          },
-          {
-            id: "active",
-            label: "Active",
-          },
-          {
-            id: "complete",
-            label: "Complete",
-          },
-        ]}
+        tabConfig={tabConfig}
         currentTabId={mode}
         handleTabClick={handleModeChange}
       />
       <TodoList
         todosToShow={todosToShow}
+        currentCategoryId={currentCategoryConfig.id}
         handleDeleteTodo={handleDeleteTodo}
         handleToggleTodo={handleToggleTodo}
-        currentCategoryConfig={currentCategoryConfig}
       />
       <button
         className="TodoContainer__section__btn"

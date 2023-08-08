@@ -3,3 +3,7 @@
     padding: 10px;
     background-color: #42A5F5;
 }
+
+.Header__header__label {
+    text-transform: capitalize;
+}

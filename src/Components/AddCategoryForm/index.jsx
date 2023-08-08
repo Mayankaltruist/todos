@@ -11,7 +11,7 @@ function AddCategoryForm({ handleAddCategory }) {
   };
 
   const handleSubmit = (event) => {
-    // prevent form default beaviour
+    // prevent form default behaviour
     event.preventDefault();
     handleAddCategory(categoryText);
     // reset category text to ""

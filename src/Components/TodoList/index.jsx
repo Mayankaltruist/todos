@@ -3,7 +3,7 @@ import "./style.css";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
 function TodoList({
-  currentCategoryConfig,
+  currentCategoryId,
   handleToggleTodo,
   handleDeleteTodo,
   todosToShow,
@@ -11,17 +11,16 @@ function TodoList({
   return (
     <ul id="TodoList__ul__todo-list">
       {todosToShow.map((todo) => (
-        <li className="TodoList__ul__todo-list-item" data-id={todo.id}>
-          <span
-            data-item-id={todo.id}
-            data-category-id={currentCategoryConfig.id}
-            className="TodoList__ul__todo-toggle"
+        <li className="TodoList__ul__todo-list-item" key={todo.id}>
+          <input
+            type="radio"
+            checked={todo.done}
             onClick={handleToggleTodo}
-          >
-            <input type="radio"></input>
-          </span>
+            data-item-id={todo.id}
+            data-category-id={currentCategoryId}
+            className="TodoList__ul__todo-toggle"
+          ></input>
           <span
-            data-id={todo.id}
             className="TodoList__ul__todo-label"
             style={{ textDecoration: todo.done ? "underline" : "none" }}
           >
@@ -29,7 +28,7 @@ function TodoList({
           </span>
           <span
             data-item-id={todo.id}
-            data-category-id={currentCategoryConfig.ID}
+            data-category-id={currentCategoryId}
             className="TodoList__ul__todo-delete"
             onClick={handleDeleteTodo}
           >

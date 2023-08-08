@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./style.css";
 import TodoContainer from "../TodoContainer";
 import Header from "../Header";
@@ -15,25 +15,22 @@ function Main({
     (category) => category.id === currentCategoryId
   );
 
-  if (!currentCategoryConfig) {
-    // You can decide what to render or show when no category is selected
-    return (
-      <main id="main">
-        <h2>Please Select a Category</h2>
-      </main>
-    );
-  }
-
   return (
     <main id="Main__main__main">
-      <Header currentCategoryLabel={currentCategoryConfig.label} />
-      <TodoContainer
-        currentCategoryConfig={currentCategoryConfig}
-        handleAddTodo={handleAddTodo}
-        handleDeleteTodo={handleDeleteTodo}
-        handleToggleTodo={handleToggleTodo}
-        handleDeleteCompleteTodos={handleDeleteCompleteTodos}
-      />
+      {currentCategoryId ? (
+        <Fragment>
+          <Header currentCategoryLabel={currentCategoryConfig.label} />
+          <TodoContainer
+            currentCategoryConfig={currentCategoryConfig}
+            handleAddTodo={handleAddTodo}
+            handleDeleteTodo={handleDeleteTodo}
+            handleToggleTodo={handleToggleTodo}
+            handleDeleteCompleteTodos={handleDeleteCompleteTodos}
+          />
+        </Fragment>
+      ) : (
+        <h2 className="Main__main__fallback-text">Please Select a Category</h2>
+      )}
     </main>
   );
 }

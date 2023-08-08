@@ -12,20 +12,18 @@ function CategoryList({
       {categoryList.map((category) => (
         <li
           data-id={category.id}
+          key={category.id}
           className="CategoryList__ul__category-list-item"
           onClick={handleSelectCurrentCategory}
         >
           <span
             data-id={category.id}
-            className="delete-icon"
+            className="CategoryList__ul__delete-icon"
             onClick={handleDeleteCategory}
           >
             <DeleteOutlineOutlinedIcon style={{ color: "red" }} />
           </span>
-          <span
-            className="CategoryList__ul__category-label"
-            data-id={category.id}
-          >
+          <span className="CategoryList__ul__category-label">
             {category.label}
           </span>
           <span className="CategoryList__ul__category-count">

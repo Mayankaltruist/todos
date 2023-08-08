@@ -3,15 +3,17 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-evenly;
-    border-bottom: 1px solid #dbdbdb;
     padding-bottom: 5px;
     cursor: pointer;
 }
 
-.Tab__ul__tab-list {
+.Tab__ul__item {
     list-style: none;
+    width: 120px;
+    display: flex;
+    justify-content: space-around;
 }
 
-.Tab__ul__tab:active {
+.Tab__ul__item-active {
     background-color: #dbdbdb;
 }
