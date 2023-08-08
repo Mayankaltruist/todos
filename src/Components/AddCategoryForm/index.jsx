@@ -13,7 +13,7 @@ function AddCategoryForm({ handleAddCategory }) {
   const handleSubmit = (event) => {
     // prevent form default behaviour
     event.preventDefault();
-    handleAddCategory(categoryText);
+    handleAddCategory(categoryText.trim());
     // reset category text to ""
     setCategoryText("");
   };
@@ -26,7 +26,11 @@ function AddCategoryForm({ handleAddCategory }) {
         onChange={handleChange}
         className="AddCategoryForm__form__input"
       ></input>
-      <button type="submit" className="AddCategoryForm__form__btn">
+      <button
+        type="submit"
+        className="AddCategoryForm__form__btn"
+        disabled={categoryText.trim().length === 0}
+      >
         ADD CATEGORY
       </button>
     </form>

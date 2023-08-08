@@ -36,6 +36,10 @@ function App() {
     event.stopPropagation();
     const id = event.currentTarget.getAttribute("data-id");
     setCategoryList(categoryList.filter((category) => category.id !== id));
+    // resetting currentCateogyId to "", if selected category is deleted
+    if (currentCategoryId === id) {
+      setCurrentCategoryId("");
+    }
   }
 
   // select category and mark it as current category

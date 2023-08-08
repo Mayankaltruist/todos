@@ -39,6 +39,10 @@ function TodoContainer({
       break;
   }
 
+  const doneTodoCount = currentCategoryConfig.todos.filter(
+    (todo) => todo.done === true
+  ).length;
+
   return (
     <section id="TodoContainer__section__todo-container">
       <AddTodoForm
@@ -61,6 +65,7 @@ function TodoContainer({
         className="TodoContainer__section__btn"
         onClick={handleDeleteCompleteTodos}
         data-category-id={currentCategoryConfig.id}
+        disabled={doneTodoCount === 0}
       >
         Clear complete item
       </button>

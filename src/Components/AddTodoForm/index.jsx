@@ -7,7 +7,7 @@ function AddTodoForm({ currentCategoryId, handleAddTodo }) {
   function handleFormSubmit(event) {
     // prevent form default behaviour
     event.preventDefault();
-    handleAddTodo(currentCategoryId, itemText);
+    handleAddTodo(currentCategoryId, itemText.trim());
     //setting input feild to "" after submit
     setItemText("");
   }
@@ -26,7 +26,7 @@ function AddTodoForm({ currentCategoryId, handleAddTodo }) {
       />
       <button
         type="submit"
-        disabled={itemText.length === 0}
+        disabled={itemText.trim().length === 0}
         className="AddTodoForm__form__todo-btn"
       >
         ADD TODO
